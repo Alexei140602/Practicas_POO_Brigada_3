@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Practica3poo
+public class Practica3
 {
     public static String generaHash(String texto)
     {
