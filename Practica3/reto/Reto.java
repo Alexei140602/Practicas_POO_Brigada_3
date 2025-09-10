@@ -6,8 +6,6 @@ public class Reto
     public static void EcuacionCuadratica(double a, double b, double c)
     {
         System.out.println("\nEcuación: " + a + "x² + " + b + "x + " + c + " = 0");
-        
-        // Caso especial: a = 0 (ecuación lineal)
         if (a == 0)
         {
             if (b == 0) 
@@ -65,4 +63,5 @@ public class Reto
             EcuacionCuadratica(arreglobonito.get(0), arreglobonito.get(1), arreglobonito.get(2));
         }
     }
+
 }
