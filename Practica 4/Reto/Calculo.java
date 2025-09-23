@@ -16,9 +16,9 @@ public class Calculo
         double diffYBC = c.y - b.y;
 
         
-        distanciaAB = Math.round(Math.sqrt(Math.pow(diffXAB, 2) + Math.pow(diffYAB, 2)) * 10) / 10.0;
-        distanciaAC = Math.round(Math.sqrt(Math.pow(diffXAC, 2) + Math.pow(diffYAC, 2)) * 10) / 10.0;
-        distanciaBC = Math.round(Math.sqrt(Math.pow(diffXBC, 2) + Math.pow(diffYBC, 2)) * 10) / 10.0;
+        distanciaAB = Math.sqrt(Math.pow(diffXAB, 2) + Math.pow(diffYAB, 2)) ;
+        distanciaAC = Math.sqrt(Math.pow(diffXAC, 2) + Math.pow(diffYAC, 2))  ;
+        distanciaBC = Math.sqrt(Math.pow(diffXBC, 2) + Math.pow(diffYBC, 2)) ;
 
         d1 = Math.abs(distanciaAB - distanciaAC);
         d2 = Math.abs(distanciaAB - distanciaBC);
