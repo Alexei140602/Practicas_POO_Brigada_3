@@ -1,4 +1,4 @@
-package mx.unam.fi.poo.g1.p56;
+package mx.unam.fi.poo.p56;
 import java.util.List;
 import javax.swing.SwingUtilities;
 public class MainApp {
@@ -152,4 +152,5 @@ public class MainApp {
         String decStr = dec < 10 ? ("0" + dec) : String.valueOf(dec);
         return "$" + entero + "." + decStr;
     }
+
 }
