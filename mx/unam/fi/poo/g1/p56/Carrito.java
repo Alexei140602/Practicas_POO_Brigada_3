@@ -1,4 +1,4 @@
-package mx.unam.fi.poo.g1.p56;
+package mx.unam.fi.poo.p56;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,4 +51,5 @@ public class Carrito {
         }
         return total;
     }
+
 }
