@@ -1,4 +1,4 @@
-package mx.unam.fi.poo.g1.p56;
+package mx.unam.fi.poo.p56;
 public class Articulo {
     private String nombre;
     private double precio;
@@ -32,4 +32,5 @@ public class Articulo {
         return nombre + " - $" + entero + "." + decStr;
     }
     
+
 }
