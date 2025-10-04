@@ -1,4 +1,4 @@
-package mx.unam.fi.poo.g1.p56;
+package mx.unam.fi.poo.p56;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -81,3 +81,4 @@ public class Vista extends JFrame{
     public JLabel getEstadoLabel() { return estadoLabel; }
     public JLabel getTotalLabel() { return totalLabel; }
 }
+
