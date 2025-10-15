@@ -8,10 +8,11 @@ public class Libro extends Material {
 
     @Override
     public void mostrarInformacion() {
-        System.out.println("📘 Libro:");
+        System.out.println("Libro:");
         System.out.println("Título: " + titulo);
         System.out.println("Autor: " + autor);
         System.out.println("Año: " + anio);
         System.out.println("Número de páginas: " + numeroPaginas);
     }
 }
+
