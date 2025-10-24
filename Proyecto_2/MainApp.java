@@ -2,9 +2,9 @@ package mx.unam.fi.poo.proyecto2;
 public class MainApp {
     public static void main (String[] args)
     {
-        boolean contratofijo = false;
+        int valorEntero = (int) (Math.floor(Math.random()*2));
         Empleado godin;
-        if(contratofijo==true)
+        if(valorEntero==0)
         {
             godin= new EmpleadoAsalariado("Edgar","Ruiz", "Miguel", 123456,20000.0);
             System.out.println("-----Empleado consultado-----");
@@ -15,7 +15,7 @@ public class MainApp {
             System.out.println("es un "+ godin.toString());
             System.out.println(godin.ingresos());
         }
-        else
+        else if (valorEntero==1)
         {
             godin= new EmpleadoPorComisión("Alexei","Ramírez","Pedroza",456789, 420, .5);
             System.out.println("-----Empleado consultado-----");
