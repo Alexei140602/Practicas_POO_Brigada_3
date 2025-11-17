@@ -16,3 +16,18 @@ existentes.
 Diseñar un diagrama UML dinámico que ilustre una interacciones del sistema.
 Interpretar la aplicación de los conceptos de Programación Orientada a Objetos.
 Proporcionar una interpretación detallada del uso de excepciones en Dart.
+
+\section{Introducción} %
+
+\begin{itemize}
+    \item \textbf{Planteamiento del problema.} El problema a resolver en esta práctica es el análisis de una aplicación desarrollada en el lenguaje Dart que simula un sistema de gestión para un taller mecánico. El desafío central de este reporte es documentar la arquitectura de dicha aplicación mediante la creación de diagramas UML y analizar e interpretar cómo se aplica el concepto de manejo de excepciones  para asegurar la integridad y validez de los datos ingresados al sistema
+    \item \textbf{Motivación.}La documentación de software mediante diagramas UML es una práctica esencial en la ingeniería, ya que permite comunicar visualmente la estructura y el comportamiento de un sistema, facilitando su comprensión, mantenimiento y evolución.
+    \item \textbf{Objetivos.} Los objetivos específicos de esta práctica son:
+
+Elaborar un diagrama UML estático que represente la estructura de las clases del código, sus atributos, métodos y las relaciones de herencia e implementación existentes.
+
+Diseñar un diagrama UML dinámico que ilustre una interacciones del sistema.
+Interpretar la aplicación de los conceptos de Programación Orientada a Objetos.
+
+Proporcionar una interpretación detallada del uso de excepciones en Dart.
+\end{itemize}
