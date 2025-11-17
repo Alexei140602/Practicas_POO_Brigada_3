@@ -1,1 +1,32 @@
 
+\section{Resultados}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-11-16 221621.png}
+    \caption{Menu}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-11-16 221628.png}
+    \caption{Ejemplo de vehiculo agregado}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{Screenshot 2025-11-16 221656.png}
+    \caption{Salida de opcion 4}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-11-16 221704.png}
+    \caption{Salida de opcion 5}
+    \label{fig:placeholder}
+\end{figure}
+
+\section{Conclusiones}
+Analizar el codigo proporcionado nos permite concluir que la aplicación de los conceptos teóricos de la Programación Orientada a Objetos es fundamental para resolver problemas de gestión de datos de una forma estructurada, escalable y mantenible. 
+El uso del manejo de excepciones  resulta eficiente al implementar las validaciones
+
+Esta estrategia demuestra una clara separación de responsabilidades: las clases son responsables de definir y hacer cumplir sus propias reglas de negocio, mientras que la interfaz de usuario (la función main se encarga de capturar y gestionar dichos errores de una manera amigable para el usuario. Esto nos permite que nuestros programas eviten que datos inválidos corrompan el estado del sistema.
