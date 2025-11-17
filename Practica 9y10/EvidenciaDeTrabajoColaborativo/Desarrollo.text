@@ -1,1 +1,32 @@
+\newpage
+\subsection{Interfaz \texttt{ServicioTaller}}
+Esta es una clase abstracta. Define los métodos abstractos que establecen el "contrato" para los vehículos del taller: \textbf{calcularServicio()} y \textbf{generarReporteServicio()}. Esto obliga a que cualquier clase que la implemente deba proporcionar una lógica concreta para estos dos métodos.
 
+\subsection{Clase abstracta \texttt{Vehiculo}}
+Esta clase implementa la interfaz \texttt{ServicioTaller} y define los atributos principales que tendrán todos los tipos de vehículos. Iniciaremos encapsulando los atributos privados que tendrán todos los vehículos: de tipo String \textbf{\_marca} y \textbf{\_modelo}, y de tipo entero \textbf{\_anio}. Posteriormente, se inicializan estos atributos mediante un método constructor.
+
+Esta clase aplica la lógica de validación de datos directamente en sus métodos \textit{setters}. Por ejemplo, \textbf{set anio(int nuevoAnio)} y \textbf{set marca(String nuevaMarca)} comprueban que los datos ingresados sean válidos). Si un dato es inválido, el \textit{setter} correspondiente lanza (\texttt{throw}) una excepción de tipo \textbf{ArgumentError} para detener la asignación y reportar el error.
+
+
+\subsection{Clase \texttt{Auto}}
+Esta clase hereda de la clase abstracta \texttt{Vehiculo}. Define un Auto y añade el atributo privado específico \textbf{\_tieneAireAcondicionado} de tipo booleano. Utiliza el constructor de la clase padre (vía \texttt{super()}) para inicializar los datos que tienen en común (marca, modelo, año).
+
+Posteriormente, se sobrescriben e implementan los métodos abstractos: \textbf{calcularServicio()}, que define el ingreso sumando un costo base, alineación y un recargo si \texttt{\_tieneAireAcondicionado} es verdadero; y \textbf{generarReporteServicio()}, que devuelve una cadena que identifica al objeto como "Servicio para AUTO" agregando sus detalles y el costo total.
+
+\subsection{Clase \texttt{Moto}}
+Esta clase también hereda de la clase abstracta \texttt{Vehiculo} añade el atributo privado \textbf{\_cilindrada} de tipo entero. Su constructor utiliza \texttt{super()} para pasar la información personal básica al padre (marca, modelo, año).
+
+Mediante sobrescritura se implementan los métodos \textbf{calcularServicio()}, que implementa la lógica de negocio para este tipo de vehículo calculando el pago con base en un costo de ajuste de cadena y un recargo si la cilindrada es alta; y \textbf{generarReporteServicio()}, que identifica al objeto como "Servicio para MOTO".
+
+Tambienimplementa su propia lógica de validación en el \textit{setter} \textbf{set cilindrada(int nuevaCildrada)} para asegurar que la cilindrada sea un valor mayor a 0, lanzando una \texttt{ArgumentError} en caso contrario.
+
+\subsection{Clase \texttt{Camion}}
+Esta clase también hereda de \texttt{Vehiculo} y añade el atributo privado \textbf{\_capacidadToneladas} de tipo double. Su constructor utiliza \texttt{super()} para la inicialización de los datos comunes.
+
+Sobrescribe \textbf{calcularServicio()} para incluir costos de revisión de frenos, suspensión y un recargo por carga pesada si \texttt{\_capacidadToneladas} supera un umbral. También sobrescribe \textbf{generarReporteServicio()} para formatear los detalles del camión. Al igual que \texttt{Moto}, implementa validación en su propio \textit{setter} para asegurar que la capacidad de toneladas sea un valor positivo.
+
+\subsection{Función \texttt{main} (Aplicación Principal)}
+Finalmente, en la función \texttt{main} se declara una lista  \texttt{List<Vehiculo>} llamada \texttt{flotilla} para almacenar todos los vehículos registrados. El programa presenta un menú cíclico al usuario para registrar nuevos vehículos (Auto, Moto o Camión) o ver reportes.
+
+La lógica  de esta sección es el manejo de errores: cada vez que se intenta registrar un nuevo vehículo  la llamada se envuelve en un bloque \textbf{try}. Si el usuario ingresa un dato inválido  el \textit{setter} correspondiente lanza la \texttt{ArgumentError}. Esta excepción es capturada por el bloque \textbf{catch}, que imprime un mensaje de error  (\texttt{[ERROR] \$e}) y permite que el programa continúe su ejecución y regrese al menú principal.
+\newpage
