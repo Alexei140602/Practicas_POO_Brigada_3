@@ -1,1 +1,55 @@
+\subsection{Patrones de diseño:} 
 
+Este código inicia con la definición del modelo,la clase Pokemon, que encapsula los atributos de un pokemon dentro del combate, tales como su nombre, nivel, tipo elemental, vida y velocidad. La función constructor, incorpora el uso de la clase Random para generar estadísticas aleatorias que se basaran en el nivel. Posteriormente, se implementan clases hijas como PokemonFuego y PokemonHierba, las cuales heredan las características de Pokemon y  especializan el atributo correspondiente a su tipo. Despues, se introduce el modelo de llos ataques mediante la clase Ataque y  subclases (AtaqueFuego, AtaqueHierba y AtaqueNormal).
+
+Después del modelo, el código presenta su \textbf{componente de vista},  como una interfaz llamada \textbf{CombateView}. Ahi estan las operaciones que se necesitan para mostrar la  (imprimir los datos de cada Pokémon, mostrar ataques, indicar si un ataque es efectivo o poco efectivo, desplegar el daño realizado, anunciar desmayos y mostrar al ganador). La clase \textbf{ConsoleCombateView}es un implementacion de esta vista y se encarga de imprimir cada uno de los eventos del combate. Esta separación cumple con la estructura del patrón Modelo–Vista–Controlador (MVC). ya que aisla la presentación de la logica
+
+El controlador del sistema es la clase \textbf{CombateController}, cuya función principal es coordinar el flujo del combate y coordinar la interacción entre el modelo (Pokémon y ataques) y la vista (la consola). El controlador determinara el orden de los turnos en base a la velocidad de los Pokémon, selecciona cuall ataca primero y administra el ciclo completo del combate hasta que uno de los participantes pierda la vida. Dentro del método privado 
+\textbf{turno}, se establece la dinámica de intercambio de ataques entre atacante y defensor; mientras que en el método \textbf{atacar}  calcula el daño considerando la efectividad del tipo del ataque frente al rival, aplicando multiplicadores de daño.
+
+El programa culmina con la función main. Aquí se crea la vista concreta, se inicializa el controlador que gestionará el combate y se instancian dos Pokémon (Charmander y Bulbasaur), así como un ataque por defecto. A partir de estos elementos, se llama el método \textbf{iniciarCombate}, iniciando así todo el flujo controlado por la arquitectura MVC. el modelo concentra la información y reglas fundamentales de los objetos, la vista administra la forma de mostrar la información al usuario y el controlador coordina la interacción entre ambos, tomando decisiones sobre la secuencia del combate.
+
+\subsubsection{Diagrama de clases}
+
+\subsubsection{Diagrama de Secuencia}
+
+\section{Resultados}
+\subsection{Archivos}
+\begin{figure}[H]
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-11-27 124737.png}
+    \caption{Menú}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-11-27 125227.png}
+    \caption{Salida de Opción 1}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[H]
+ 
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-11-27 125256.png}
+    \caption{Salida de Opción 2}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[H]
+ 
+    \includegraphics[width=0.5\linewidth]{Screenshot 2025-11-27 125339.png}
+    \caption{Salida de Opción 3}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{ Patrones de diseño:}
+
+\begin{figure}[H]
+ 
+    \includegraphics[width=0.75\linewidth]{Screenshot 2025-11-27 125825.png}
+    \caption{Combate}
+    \label{fig:placeholder}
+\end{figure}
+\section{Conclusiones}
+Analizar los programas desarrollados en Dart nos permite  concluir que la integración de los conceptos de manejo de archivos, hilos y patrones de diseño es importante para desarrollar aplicaciones  capaces de responder de manera eficiente a distintas necesidades del sistema. El uso correcto de archivos asegura la persistencia y consistencia de la información, mientras que la implementación de hilos permite ejecutar tareas concurrentes sin bloquear el flujo principal del programa, optimizando así el rendimiento de nuestros proyectos y aumentando la eficiencia.
+
+Asimismo, la aplicación de patrones de diseño refuerza la estructura del sistema al promover soluciones reutilizables, y alineadas con los principios de la Programación Orientada a Objetos. En conjunto, estos elementos nos permiten construir aplicaciones más organizadas.
