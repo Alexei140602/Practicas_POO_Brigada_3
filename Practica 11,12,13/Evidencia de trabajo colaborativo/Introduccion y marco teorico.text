@@ -1,1 +1,58 @@
+\section{Introducción} %
 
+\begin{itemize}
+    \item \textbf{Planteamiento del problema.}  
+    El problema de esta práctica consiste en analizar  aplicaciónes desarrolladas en Dart que contemplan los temas de manejo de archivos, uso de hilos y  patrones de diseño. 
+
+    \item \textbf{Motivación.}  
+    El estudio de archivos, hilos y patrones de diseño esfundamental dentro de la programacion orientada a objetos, documentar estos elementos permite cómo un sistema administra datos externos, cómo ejecuta tareas concurrentes y cómo emplea soluciones arquitectónicas reutilizables.
+
+    \item \textbf{Objetivos.}  
+    Los objetivos de esta práctica son:
+
+    \begin{itemize}
+        \item Elaborar un diagrama UML estático que describa la estructura general de las clases y las relaciones existentes entre ellas.
+        \item Diseñar un diagrama UML dinámico que represente la interacción entre los componentes del sistema en un flujo de ejecución significativo.
+        \item Interpretar la aplicación de los conceptos de manejo de archivos, hilos y patrones de diseño dentro de los códigos analizado.
+
+    \end{itemize}
+\end{itemize}
+
+
+\section{Marco Teórico}
+
+\subsection{Archivos}
+Un archivo se puede considerar un objeto dentro de una computadora, el cual puede almacenar información y ademas puede ser manipulado como una identidad por el sistema operativo, estos requieren tener un nombre unico y una extensión.
+
+\subsubsection{Flujo de Datos:} En lenguaje dart se utilizan los \textbf{Stream}, los cuales representan la conexión entre el programa(lectura) y la fuente(escritura).
+\subsubsection{Repositorio:} Se puede considerar como un almacen fisico y logico, en donde se almacenara la información registrada en Binario.
+
+
+\subsection{Hilos de Ejecución:}Un hilo de ejecución es un unico flujo de ejecución dentro de un proceso, en otras palabras, es una secuencia de codigo dentro de un programa. 
+Dart no usa hilos múltiples compartiendo memoria. En su lugar, utiliza un modelo llamado Isolates.
+\subsubsection{Isolates:}Es una unidad de ejecución independiente con su propia memoria, tiene su propio heap y su propio event loop, lo que permite que un programa no existan condiciones de carrera.
+
+Etapas de Isolate:
+
+\begin{enumerate}
+    \item Crear (spawn)
+    \item Ejecutar (running)
+    \item Comunicación (messaging)
+    \item Terminación (shutdown)
+\end{enumerate}
+
+\subsubsection{Event loop:} Es la manera en que el lenguaje dart maneja las tareas concurrentes, mediante algunos metodos como \textbf{Future, async, await y stream}, las tareas parecen ser ejecutadas de manera concurrrente, sin embargo todo funciona desde el mismo hilo de ejecucion.
+\subsection{Patrones de diseño:}
+Un patrón de diseño es una solución general y reutilizable para resolver problemas recurrentes en el diseño de software. En otras palabras es un modelo (template) que ayuda a agilizar el proceso de solución al problema al organizar mejor las clases, objetos y sus interacciones, promoviendo buenas prácticas como modularidad, reutilización y mantenimiento del sistema.
+\vspace{}
+\textbf{Niveles de patrones de software:}
+
+\begin{itemize}
+    \item \textbf{Patrones arquitectónicos:} Definen la estructura general y organización de un sistema, es decir describen soluciones al mas alto nivel de software y hardware.
+    \item \textbf{Patrones de diseño:} Proponen soluciones reutilizables a problemas a nivel medio de software
+    \item \textbf{Patrones de programación:} Describen técnicas específicas para resolver tareas concretas a bajo nivel en el código (clases y metodos).
+\end{itemize}
+\subsubsection{Singleton}
+
+Una clase que implementa el patron de diseño "Singleton" garantiza que solo exista una única instancia en toda la aplicación y que todos los clientes accedan a ella mediante un punto de acceso común. Esto permite controlar que no se creen más instancias y asegura una vía centralizada para obtener el mismo objeto durante toda la ejecución.
+En el patrón Singleton se debe asegurar que la clase no pueda ser instanciada libremente. Para lograrlo, su constructor debe ser privado, debe existir una única instancia declarada como privada y estática, y se debe proporcionar un método público y estático que permita acceder a esa instancia desde cualquier parte del programa.
