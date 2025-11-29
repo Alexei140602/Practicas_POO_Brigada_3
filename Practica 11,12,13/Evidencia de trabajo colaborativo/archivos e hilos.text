@@ -1,1 +1,29 @@
+\section{Desarrollo} 
+\subsection{Archivos}
+Para el analisis de este codigo notamos que inicia con la importación de la biblioteca dart:io, la cual permite trabajar con archivos y operaciones de entrada y salida dentro de la consola. la función principal main() presenta un menú interactivo con las opciones de crear archivo y escribir texto, leer archivo, sobrescribir archivo y salir. La función \textbf{crearYEscribirArchivo()} permitira crear un archivo .txt y escribir en él hasta que el usuario ingresa la palabra “FIN”, demostrando el uso directo de la clase File y del método \textbf{writeAsStringSync} para almacenar información. La función \textbf{ leerArchivoExistente()} emplea \textbf{readAsStringSync} para abrir y mostrar el  de un archivo previamente creado(lectura). Finalmente, \textbf{sobrescribirArchivo()} ejemplifica cómo reemplazar por completo el contenido de un archivo ya existente mediante escritura síncrona, integrando validaciones de seguridad y confirmación del usuario. 
 
+\subsection{Hilos}
+
+Ejemplos de aplicacion de los Isolates de Dart mostrados en el video 
+
+\begin{enumerate}
+
+    \item \textbf{Ejemplo 1: Uso de \texttt{Future.delayed}}  
+    Este código inicia mostrando \textbf{Inicio}, programa una tarea asíncrona que se ejecutará dos segundos después, y finaliza inmediatamente sin esperar su resultado. Dart continúa su flujo principal mientras una tarea queda pendiente.
+
+    \item \textbf{Ejemplo 2: Espera con \texttt{await}}  
+    En este ejemplo, el programa se detiene hasta que la tarea asíncrona programada con \texttt{Future.delayed} termina. Aquí sí se espera la finalización antes de continuar con el resto del código.
+
+    \item \textbf{Ejemplo 3: Comunicación  entre isolates}  
+    Este programa crea un nuevo isolate que envía un mensaje al isolate principal usando  \texttt{SendPort}. ejemplifica cómo dos hilos independientes se comunican mediante mensajes.
+
+    \item \textbf{Ejemplo 4: Tarea pesada ejecutada en un isolate}  
+    Se ejecuta una operación larga (sumar hasta 500 millones) dentro de un isolate separado, lo cual evita bloquear el hilo principal, que puede seguir ejecutándose mientras la tarea pesada se procesa en paralelo.
+
+    \item \textbf{Ejemplo 5: Envío y recepción de mensajes entre isolates}  
+    En este ejemplo el isolate secundario crea su propio puerto de escucha y envía su \texttt{SendPort} al hilo principal, permitiendo comunicación. El main envía un mensaje y recibe la respuesta del worker.
+
+    \item \textbf{Ejemplo 6: Tarea pesada en un solo hilo}  
+    Aquí una suma muy grande se ejecuta completamente en el hilo principal, bloqueándolo hasta terminar. Sirve para comparar cómo, sin isolates, el programa se detiene hasta completar la operación.
+
+\end{enumerate}
