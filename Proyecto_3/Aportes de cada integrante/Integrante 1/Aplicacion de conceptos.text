@@ -1,1 +1,68 @@
+\section{Introducción} %
 
+\begin{itemize}
+    \item \textbf{Planteamiento del problema.}  
+    El reto de este proyecto consiste en realizar un juego al estilo clasico de pokemon, con sus mecanicas establecidas las cuales son atacar por turnos, observar tu vida y la del rival, por otro lado tambien la variedad de personajes asi como sus habilidades,etc ,la cuestion de aqui, es que será  realizado en un lenguaje de programacion diferente llamado flutter,la dificultad aqui sera reflejada principalmente por la falta de experiencia del lenguaje.
+
+    \item \textbf{Motivación.}  
+    La aplicación práctica de la POO para modelar un juego clásico como Pokémon, usando herencia y polimorfismo en cosas como personajes y ataques. Es un desafío practico atractivo que demuestre nuestras habilidades de desarrollo y creatividad que mejore nuestra capacidad de trabajar en un proyecto en equipo que nos apasiona.
+
+    \item \textbf{Objetivos.}  
+   \begin{enumerate}
+    \item Definir las características principales de cada Pokémon, como los puntos de vida (HP) y la velocidad.
+    \item Implementar un sistema de batallas por turnos basado en la velocidad: el Pokémon con mayor velocidad realiza el primer ataque. Después, el segundo Pokémon responde para completar el turno. La batalla finaliza cuando alguno de los dos llega a cero puntos de vida.
+
+    \item Definir los métodos necesarios para mostrar un menú similar al presentado en la figura de referencia.
+    \item Crear al menos un Pokémon de cada tipo y al menos un movimiento por tipo, siguiendo las relaciones de daño mostradas en la Figura 1. Los círculos verdes indican daño doble, los cuadros amarillos indican daño reducido y las X rojas representan inmunidad.
+
+    \item Mostrar en pantalla al Pokémon rival y al Pokémon controlado por el usuario.
+
+    \item Incluir en el menú la opción \texttt{ATACAR}, la cual debe desplegar una lista de movimientos disponibles, tal como se muestra en la Figura 2.
+\end{enumerate}
+
+\end{itemize}
+\section{Marco teorico:}
+
+\subsection*{Objetivo 1}
+Para este objetivo se emplearon los siguientes conceptos de Programación Orientada a Objetos:
+
+\begin{itemize}
+    \item Clase: Describe a todos los objetos de un tipo. [1]
+    \item Objeto: Encapsulación generica de datos y de los procedimientos para manipularlos. [1]
+    \item Atributos: Aquellas que dan identidad a las variables.
+    \item Encapsulamiento: Es una especie de capa protectora con el cual brinda un nivel de seguridad, para acceder a los objetos encapsulados se hacen por medio de gets(metodos consultores) y setters(metodos modificadores. [1]
+    \item Métodos: Especifican el comportamiento de la clase y sus objetos. [1]
+    \item Constructores: Es un método que tiene el mismo nombre que la clase cuyo propósito es inicializar los atributos de un nuevo objeto. Se ejecuta automáticamente cuando se crea un objeto de una clase. Siempre hay cuando menos un constructor. [1]
+
+Si no se ha escrito un constructor en la clase, el compilador proporciona un constructor por defecto, el cual no tiene parámetros e inicializa los atributos a su valor por defecto.
+    \item Polimorfismo: 
+* Capacidad de un objeto de decidir qué método 
+aplicar, dependiendo de la clase a la que pertenece – Una llamada a un método sobre una referencia de un tipo 
+genérico (clase base) ejecuta la implementación 
+correspondiente del método dependiendo de la clase del 
+objeto que se creó 
+* Permite diseñar e implementar sistemas extensibles – Los programas pueden procesar objetos 
+genéricos (descritos por referencias de la 
+superclase) – El comportamiento concreto depende de las subclases [1]
+\end{itemize}
+\subsection*{Objetivo 2}
+\begin{itemize}
+    \item Objeto
+\end{itemize}
+\begin{itemize}
+    \item Abstracción: La abstracción en la programación orientada a objetos (POO) es un concepto que se utiliza para reducir la complejidad del código y mejorar la diseño de software al ocultar detalles específicos de implementación. La abstracción ayuda a los desarrolladores a enfocarse en los conceptos clave y en la funcionalidad de alto nivel de una aplicación sin distraerse con los detalles de bajo nivel del código.En POO, la abstracción se implementa comúnmente a través de clases abstractas e interfaces, lo que permite definir un conjunto de comportamientos o propiedades que una clase derivada debe implementar. [1]
+\end{itemize}
+\subsection*{Objetivo 4}
+Conceptos aplicados:
+\begin{itemize}
+    \item Archivos: Las aplicaciones puedan comunicarse con su entorno, para
+obtener datos e información que se busca procesar 0
+almacenar. dar un resultado. o bien devolver el resultado,
+volverlo persistente.
+El manejo de archivos se realiza a través de fluios de datos
+desde una fuente hacia un repositorio. La fuente inicia el
+flujo de datos, a lo que llamamos fluio de entrada. E
+repositorio termina el fluio de datos, a lo que llamamos el
+fluio de salida. En otras palabras, tanto la fuente como el
+repositorio representan nodos de fluio de datos [2]
+\end{itemize}
