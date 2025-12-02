@@ -1,1 +1,27 @@
-
+\section{Resultados}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Screenshot 2025-12-01 192905.png}
+    \caption{Menu principal con el requerimiento del objetivo 3. }
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Screenshot 2025-12-01 192917.png}
+    \caption{Coleción de pokemons al seleccionar la opción mochila.}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Screenshot 2025-12-01 192938.png}
+    \caption{Ejemplo de imagen que se muestra al seleccionar un Pokemon.}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{WhatsApp Image 2025-12-01 at 10.03.41 PM.jpeg}
+    \caption{Pantalla de combate, con los pokemon ya colocados, cumpliendo el obejtivo 5.}
+    \label{fig:placeholder}
+\end{figure}
+\section{Conclusiones}
+Realizar este proyecto fue una experiencia que nos permitió poner en práctica todo lo aprendido sobre la materia de Programación Orientada a Objetos gracias a todos estos conocimientos que adquirimos en el semestre pudimos hacer un juego que simula a Pokémon en específico a sus características batallas por turnos, para poder realizarlo implementamos atributos para cada Pokémon como lo fue la vida, velocidad, distintos tipos de ataques, estados alterados y un sistema de turnos que dependía de las características de cada Pokémon  Como este fue nuestro primer proyecto usando Flutter utilizamos los materiales que se nos compartió por en medio del Classroom lo cual no ayudo muchísimo a despejar dudas y hacer que el proceso no se sintiera tan pesado. Los diagramas UML nos permitieron ordenar de mejor manera la estructura del programa y tener una idea más clara de lo que queríamos lograr antes de ejecutarlo. Trabajar por etapas y dividir tareas dentro del equipo ayudó a que el proyecto avanzara de forma óptima y que todos pudiéramos aportar. En general, este trabajo no solo nos permitió reforzar conceptos como herencia, polimorfismo, encapsulamiento y todo lo aprendido, sino que también entender la importancia de planear bien las ideas antes de empezar a programar.
