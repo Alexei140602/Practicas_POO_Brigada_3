@@ -1,1 +1,207 @@
+\section{Desarrollo}
+\begin{enumerate}
 
+    \item \textbf{Preparación del proyecto}
+    \begin{enumerate}
+        \item Creación de un nuevo proyecto Flutter.
+
+        Para comenzar con el desarrollo de este proyecto, primero procedimos a crear un nuevo proyecto utilizando el entorno de Flutter. Abrimos la terminal y ejecutamos el comando \textit{flutter create pokemonpro}, lo cual permitió que Flutter preparara automáticamente los directorios y archivos necesarios para comenzar a programar.
+
+        \item Creación de las carpetas para organizar el código:
+        \begin{itemize}
+            \item \texttt{/source:} Aquí colocaremos los archivos .dart que se encargarán de la lógica de nuestro videojuego.
+            \item \texttt{/views:} Aquí colocaremos los archivos .dart que corresponderán a la construcción de la interfaz gráfica del juego.
+            \item \texttt{/sprites:} Aquí colocaremos las imágenes .png para cada Pokémon.
+            \item \texttt{/audio:} Aquí estarán los archivos .mp3 (la música que se utilizará para cada pantalla).
+        \end{itemize}
+
+        En ese sentido, este paso también involucró el proceso creativo, el cual consistió en una lluvia de ideas entre todo el equipo y la recopilación de material que podríamos usar para este proyecto (música, imágenes de Pokémon, fondos, etc.).
+    \end{enumerate}
+
+    \item \textbf{Clases base}
+    \begin{enumerate}
+
+        \item Crear la clase \texttt{Tablatipos} con sus listas de efectividades, resistencias e inmunidades.
+
+        Posteriormente procedimos a implementar la clase que modelará la tabla de daño. Para ello se creó el archivo \texttt{tablatipos.dart}, el cual contiene la clase \texttt{Tablatipos}. Esta permite determinar cómo interactúan los ataques de cierto tipo con los tipos del Pokémon defensor dentro del combate.
+
+        La clase contiene tres listas principales:
+
+        \begin{itemize}
+            \item \textbf{\texttt{numeroefectivo}}: contiene los identificadores de los tipos a los cuales se les causa un daño aumentado (\(\times 2\)).
+            \item \textbf{\texttt{numeroresiste}}: almacena los tipos que reducen el daño recibido (\(\times 0.5\)).
+            \item \textbf{\texttt{numeroinmune}}: agrupa los tipos completamente inmunes al daño (\(\times 0\)).
+        \end{itemize}
+
+        Se creó el atributo \texttt{idtipo}, encargado de identificar el tipo correspondiente a cada instancia. A partir de esta estructura se definieron los 17 tipos de Pokémon como objetos estáticos dentro de la misma clase, cada uno asignado con sus relaciones específicas de efectividad, resistencia e inmunidad según la tabla de daños.
+
+        \item Implementar funciones para:
+        \begin{itemize}
+            \item obtener tipo por ID,
+            \item calcular daño super efectivo,
+            \item calcular daño resistido,
+            \item identificar inmunidad.
+        \end{itemize}
+
+        Para complementar la estructura de los tipos definidos previamente, se implementaron diversas funciones auxiliares encargadas de gestionar la lógica de interacción entre los tipos de Pokémon durante una batalla. Estas funciones permiten consultar las relaciones de efectividad sin necesidad de acoplar la lógica directamente dentro de las clases de combate.
+
+        La función \texttt{obtenerTipoPorId()} devuelve la instancia correspondiente de \texttt{Tablatipos} en función del identificador numérico del tipo.
+
+        La función \texttt{multiplicadorSuperefectivoPor()} determina cuándo un movimiento resulta muy efectivo contra el Pokémon rival. Por otro lado, \texttt{multiplicadorResistidoPor()} calcula si el movimiento es resistido.
+
+        Finalmente, la función \texttt{inmune()} identifica los casos donde el movimiento no genera daño debido a inmunidades según la tabla de tipos.
+
+        \item Crear la clase \texttt{Pokemon} con atributos de vida, tipos, velocidad y estados:
+
+        Para representar a cada Pokémon, se desarrolló la clase \texttt{Pokemon}, la cual encapsula las características básicas necesarias para participar en una batalla: puntos de vida, tipos, velocidad, número en la Pokédex y estado alterado.
+
+        También se incluyeron los métodos \texttt{damage()}, encargado de reducir la vida, y \texttt{muerto()}, que determina si el Pokémon ha sido derrotado.
+
+        \item Implementar la clase \texttt{Movimiento} para representar ataques:
+
+        Finalmente, se implementó la clase \texttt{Movimiento}, la cual modela los ataques utilizados por los Pokémon durante una batalla. Cada movimiento cuenta con un identificador, un nombre, un tipo asociado y un valor de ataque que determina el daño base que puede causar.
+
+    \end{enumerate}
+
+        \item \textbf{Implementación de colecciones}
+    \begin{enumerate}
+
+        \item Crear la lista de Pokémon (\texttt{pokedex}):
+
+        Una vez definidas las clases \texttt{Pokemon} y \texttt{Movimiento}, procedimos a crear una colección  que contuviera a todos los Pokémon que formarían parte del proyecto. Para ello implementamos el archivo correspondiente donde declaramos la lista \texttt{pokedex}, la cual almacena instancias de la clase \texttt{Pokemon}.
+        
+        \item Implementar una función para obtener Pokémon por ID:
+
+        Para tener facil el acceso a los Pokémon almacenados en la \texttt{pokedex}, implementamos la función \texttt{obtenerPokemonPorId()}. Esta función recibe como parámetro el identificador del Pokémon y devuelve la instancia correspondiente.
+        
+        \item Crear los movimientos en la clase \texttt{Movimientos}:
+
+        Diseñamos una estructura para gestionar los movimientos disponibles en el juego. Para ello creamos la clase \texttt{Movimientos}, en la cual cada objeto estático representa un ataque con sus propiedades : nombre, tipo y poder. 
+
+        \item Función para obtener movimientos por ID:
+
+        Finalmente, agregamos la función \texttt{porId()} dentro de la clase \texttt{Movimientos}, la cual se encarga de devolver el movimiento correspondiente al identificador. Esta función permite seleccionar ataques específicos durante el combate.
+    \end{enumerate}
+
+
+    \item \textbf{Implementación del sistema de combate:}
+    \begin{enumerate}
+
+        \item Crear la clase \texttt{Pelea}.
+Implementamos la clase \texttt{Pelea}, que se encargara de hacer los cálculos de daño entre dos Pokémon.
+        \item Implementar el constructor que recibe los IDs de los dos Pokémon y los dos movimientos.
+        El constructor de la clase \texttt{Pelea} recibira como parámetros los identificadores de los dos Pokémon  y los dos movimientos seleccionados. Con estos valores, la clase obtiene las instancias correspondientes desde las colecciones  mediante las funciones \texttt{obtenerPokemonPorId()} y \texttt{Movimientos.porId()}. 
+
+        \item Determinar quién ataca primero mediante la velocidad.
+
+       Para esto se compararon los atributos \texttt{velocidad} de ambos Pokémon. El Pokémon con mayor velocidad se asigna como atacante inicial (primer turno).
+       
+        \item Calcular el daño basándose en:
+        \begin{itemize}
+            \item poder del movimiento,
+            \item tipo del ataque,
+            \item tipos del Pokémon defensor,
+            \item multiplicadores por efectividad,
+            \item inmunidades.
+        \end{itemize}
+
+        Para el calculo de daño se incorporan los atributos del movimiento utilizado y los tipos del Pokémon defensor. En este procedimiento se utilizan las funciones previamente definidas: \texttt{multiplicadorSuperefectivoPor()}, \texttt{multiplicadorResistidoPor()} y \texttt{inmune()}. Dichas  determinaran si el ataque resulta súper efectivo, poco efectivo o completamente ineficaz debido a inmunidades. En caso de inmunidad, el daño final se reduce a cero sin necesidad de cálculos adicionales.
+
+        \item Aplicar daño al Pokémon atacado.
+
+        Mediante el método \texttt{damage()}se aplica el daño calculado al Pokémon defensor.Esta función actualiza la vida del Pokémon, controlando que no disminuya por debajo de cero. 
+
+        \item Implementacion de efectos de estado (veneno, quemadura, parálisis).
+
+        Además del daño directo, algunos movimientos podran causar estados en los pokemon. Para ello se evalúa si el movimiento posee un valor distinto de cero en el atributo \texttt{estadoAlterado}. En caso afirmativo, se genera una probabilidad para determinar si la condición se aplica al Pokémon rival.
+
+        \item Aplicar daño  por estado al final del turno.
+
+        Finalmente, se implementó el comportamiento de daño residual provocado por estados como veneno y quemadura. Este daño se calcula como un porcentaje de la vida máxima del Pokémon afectado y se aplica al finalizar el turno. En el caso de la parálisis, se evalúa si el Pokémon pierde su turno debido a esta condición. Estos efectos agregan realismo al sistema y enriquecen la estrategia dentro del combate.
+
+    \end{enumerate}
+
+    \item \textbf{Colocar música de fondo}
+    \begin{enumerate}
+
+        \item Crear la clase \texttt{AudioManager}
+
+        Para gestionar de forma centralizada todos los audios del proyecto, se desarrolló la clase \texttt{AudioManager}, implementada mediante el patrón de diseño \textit{Singleton}. Este patrón garantiza que solo exista una única instancia responsable de controlar la música y los efectos de sonido durante toda la ejecución del juego.
+
+        \item Implementar música de fondo y efectos de sonido.
+
+        Dentro de la clase \texttt{AudioManager} se utilizaron las funciones proporcionadas por el paquete \texttt{audioplayers} para reproducir música de fondo y efectos cortos en distintos puntos del juego. Se configuró la música de cada pantalla para que se reproduzca automáticamente al acceder a ella, y se implementaron métodos específicos para reproducir efectos puntuales, como seleccionar un menú o abrir la mochila.(que seran utilizados en pasos mas adelante).
+        
+        \item Agregar control de loop, pausa, reanudación y volumen:
+
+        Finalmente, se añadieron controles  que permiten ajustar el comportamiento de la música. Entre estos se encuentran la reproducción en bucle para la musica del menú y la batalla, funciones para pausar o reanudar la música según el flujo del juego y un control de volumen adaptable.
+    \end{enumerate}
+
+
+    \item \textbf{Diseño de la interfaz }
+    \begin{enumerate}
+
+        \item Crear la vista \texttt{MenuView} .
+
+        Para iniciar con el diseño de la interfaz del proyecto, se creó la vista \texttt{MenuView}, la cual funcionara como pantalla principal del juego. Esta interfaz fue desarrollada inspirándose en el estilo  de los juegos de Pokémon para Game Boy Advance (GBA), utilizando fondos previamente creados en el proceso creativo, tipografía retro y colores saturados.Para mantener la estética retro del proyecto, se utilizó la tipografía \textit{Press Start 2P}, obtenida mediante el paquete \texttt{google_fonts}.
+
+        \item Opciones \texttt{LUCHA} y \texttt{MOCHILA}.
+
+        Se incorporaron las dos opciones principales del menú: \texttt{LUCHA} y \texttt{MOCHILA}. Cada una de ellas actúa como un botón que permite al usuario acceder a diferentes secciones del juego. La opción \texttt{LUCHA} redirige a la pantalla de combate, mientras que la opción \texttt{MOCHILA} abre una interfaz donde el usuario puede visualizar su colección de Pokémon.
+
+        \item Agregar el selector animado:
+Se implementó un selector animado utilizando un carácter en forma de flecha cuya posición cambia  dependiendo de la opción del menú seleccionada. Para lograrlo, empleamos el widget \texttt{AnimatedSwitcher}, el cual permite animar transiciones suaves cuando el valor de \texttt{selectedIndex} cambia. Cada vez que el usuario pasa el cursor sobre una opción o hace clic en ella, la variable \texttt{selectedIndex} se actualiza dentro de \texttt{setState()}, provocando que la flecha se mueva automáticamente hacia la posición correspondiente.
+
+        \item Crear la pantalla de la mochila:
+        
+    La sección \texttt{MOCHILA} incluyó una vista que muestra una lista completa de los Pokémon disponibles. Cada entrada en la lista contiene el nombre del Pokémon y un número de identificación visual. Además, al seleccionar uno de ellos, se despliega una segunda vista donde se muestra una imagen ampliada del Pokémon, así como información asociada. (cabe recalcar que unicamente muestra una imagen con los datos del pokemon, la cual fue creada y editada previamente).
+
+        \item Implementar la navegación hacia la batalla:
+
+        Finalmente, se configuró la navegación desde la vista del \texttt{MenuView} hacia la pantalla de combate. Al seleccionar la opción \texttt{LUCHA}, se genera un cambio de pantalla (con un fondo creado previamente en el proceso creativo) utilizando el sistema de rutas de Flutter. Además, se añadió la lógica necesaria para activar la música correspondiente al entrar a una batalla y restaurarla al regresar al menú principal.
+
+    \end{enumerate}
+
+    \item \textbf{Diseño de la pantalla de combate}
+    \begin{enumerate}
+
+        \item Crear la vista \texttt{BattleView}.
+        
+        Para representar el escenario de batalla del juego, se creó la vista \texttt{BattleView}, la cual actúa como la interfaz principal durante un enfrentamiento. Esta pantalla incluye un fondo creado previamente y los elementos necesarios para mostrar tanto a los Pokémon involucrados como las opciones de acción disponibles durante el turno. La vista fue implementada utilizando \texttt{Stack} para superponer capas visuales
+
+        \item Posicionar los sprites del Pokémon aliado y enemigo.
+  Dentro de la vista de combate se colocaron dos sprites: el del Pokémon enemigo en la parte superior derecha y el del Pokémon aliado en la parte inferior izquierda. Para lograr colocarlos correctamente se utilizamos widgets \texttt{Positioned}.
+
+        \item Agregar botones de acción: \texttt{ATACAR}, \texttt{CAMBIAR}, \texttt{MOCHILA}, \texttt{HUIDA}.
+
+        En la parte inferior de la pantalla se implementó un menú interactivo compuesto por cuatro botones: \texttt{ATACAR}, \texttt{CAMBIAR}, \texttt{MOCHILA} y \texttt{HUIDA}. Estos botones fueron organizados mediante un \texttt{GridView} de dos columnas.
+
+    \end{enumerate}
+\item \textbf{Integración del sistema de combate con la UI}
+\begin{enumerate}
+    \item Se implementó la conexión directa entre la interfaz gráfica y la lógica de combate. 
+    Al presionar la opción \texttt{ATACAR} dentro de la vista de batalla, la interfaz despliega 
+    una cuadrícula con los movimientos disponibles del Pokémon aliado. Al seleccionar uno, 
+    la vista invoca el método \texttt{\_ejecutarAtaque()}, el cual crea una instancia de la 
+    clase \texttt{Pelea} enviando los identificadores del Pokémon aliado, del enemigo, y los 
+    movimientos seleccionados para ambos combatientes.
+
+    \item Se desarrolló un sistema de turnos completo controlado por la interfaz, donde la 
+    vista ejecuta el flujo de la batalla mediante el método \texttt{\_procesarTurnoBatalla()}. 
+    Este proceso incluye: mostrar mensajes , aplicar pausas temporales para simular 
+    secuencias de ataque, ejecutar la lógica interna de \texttt{Pelea}, actualizar estados 
+    alterados (veneno, quemadura, parálisis) y reproducir los mensajes de daño generado..
+
+    \item Después de recibir el resultado de \texttt{Pelea}, la interfaz actualiza las barras 
+    de vida de ambos Pokémon empleando \texttt{AnimatedContainer}, lo que permite mostrar 
+    transiciones  al disminuir los puntos de vida. Además, los valores internos de 
+    \texttt{vidaActual} en cada instancia de \texttt{Pokemon} se mantienen sincronizados con 
+    la representación gráfica mostrada al usuario.
+
+    \item Se incluyo detección de condiciones de derrota, victoria o empate. La UI 
+    revisa si alguno de los Pokémon ha llegado a cero puntos de vida y, en ese caso, 
+    despliega un cuadro de diálogo final con el mensaje correspondiente. También se integró 
+    la evaluación de estados alterados persistentes.
+
+    \item Finalmente, al concluir la batalla, la interfaz retorna automáticamente al menú 
+    principal mediante \texttt{Navigator.pop()}, restaurando la música original del menú con \texttt{AudioManager}.
